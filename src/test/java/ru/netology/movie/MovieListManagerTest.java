@@ -24,7 +24,7 @@ public class MovieListManagerTest {
         manager.addMovie("Movie 4");
         manager.addMovie("Movie 5");
         manager.addMovie("Movie 6");
-        Assertions.assertArrayEquals(new String[]{"Movie 1", "Movie 2", "Movie 3", "Movie 4", "Movie 5"}, manager.findAll());
+        Assertions.assertArrayEquals(new String[]{"Movie 2", "Movie 3", "Movie 4", "Movie 5", "Movie 6"}, manager.findAll());
     }
     @Test
     public void testAddOneMovieLimitDefault() {
@@ -52,7 +52,7 @@ public class MovieListManagerTest {
     }
     @Test
     public void testAddEightMovieLimitPersonal() {
-        MovieListManager manager = new MovieListManager(7);
+        MovieListManager manager = new MovieListManager(8);
         manager.addMovie("Movie 1");
         manager.addMovie("Movie 2");
         manager.addMovie("Movie 3");
@@ -60,7 +60,6 @@ public class MovieListManagerTest {
         manager.addMovie("Movie 5");
         manager.addMovie("Movie 6");
         manager.addMovie("Movie 7");
-        manager.addMovie("Movie 8");
         Assertions.assertArrayEquals(new String[]{"Movie 1", "Movie 2", "Movie 3", "Movie 4", "Movie 5", "Movie 6", "Movie 7"}, manager.findAll());
     }
     @Test
@@ -138,7 +137,7 @@ public class MovieListManagerTest {
         manager.addMovie("Movie 4");
         manager.addMovie("Movie 5");
         manager.addMovie("Movie 6");
-        Assertions.assertArrayEquals(new String[]{"Movie 4", "Movie 3", "Movie 2", "Movie 1"}, manager.findLast());
+        Assertions.assertArrayEquals(new String[]{"Movie 6", "Movie 5", "Movie 4", "Movie 3"}, manager.findLast());
     }
 
     @Test

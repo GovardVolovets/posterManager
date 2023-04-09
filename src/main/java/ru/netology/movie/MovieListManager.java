@@ -12,16 +12,21 @@ public class MovieListManager {
     }
 
     public void addMovie(String movie) {
-        if (moviesList.length == limit) {
-            return;
+        if (moviesList.length < limit) {
+            String[] newList = new String[moviesList.length + 1];
+            for (int i = 0; i < moviesList.length; i++) {
+                newList[i] = moviesList[i];
+            }
+            newList[newList.length - 1] = movie;
+            moviesList = newList;
+        } else {
+            for (int i = 0; i < moviesList.length - 1; i++) {
+                moviesList[i] = moviesList[i + 1];
+            }
+            moviesList[moviesList.length - 1] = movie;
         }
-        String[] newList = new String[moviesList.length + 1];
-        for (int i = 0; i < moviesList.length; i++) {
-            newList[i] = moviesList[i];
-        }
-        newList[newList.length - 1] = movie;
-        moviesList = newList;
     }
+
     public String[] findAll() {
         return moviesList;
     }
